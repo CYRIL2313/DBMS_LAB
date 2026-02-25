@@ -1,0 +1,69 @@
+--------EXPERIMNT 5----------------------------
+--CREATE TABLE Customer_5 (
+--    CustomerID INT PRIMARY KEY,
+--    CustomerName VARCHAR(50),
+--    ContactNo VARCHAR(15),
+--    Address VARCHAR(100),
+--    City VARCHAR(50),
+--    PostalCode VARCHAR(10),
+--    Country VARCHAR(50)
+--);
+--CREATE TABLE Employees (
+--    EmployeeID INT PRIMARY KEY,
+--    LastName VARCHAR(50),
+--    FirstName VARCHAR(50),
+--    BirthDate DATE,
+--    Photo VARCHAR(50)
+--);
+
+--CREATE TABLE Orders_5 (
+--    OrderID INT PRIMARY KEY,
+--    CustomerID INT,
+--    EmployeeID INT,
+--    OrderDate DATE,
+--    ShipperID INT,
+--    FOREIGN KEY (CustomerID) REFERENCES Customer_5(CustomerID),
+--    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+--);
+
+--INSERT INTO Customer_5 VALUES
+--(101,'Athira','9876543210','MG Road','Kochi','682001','India');
+--INSERT INTO customer_5 VALUES(102,'Priya','9123456780','Park Street','Mumbai','400001','India');
+--INSERT INTO customer_5 VALUES (103,'Sophia','9345678912','Sunset Blvd','Los Angeles','90001','USA');
+--INSERT INTO customer_5 VALUES (104,'Zara','9567891234','Sheikh Zayed Rd','Dubai','00000','UAE');
+--INSERT INTO customer_5 VALUES (105,'John','9876543212','5th Avenue','New York','10001','USA');
+--
+--INSERT INTO Employees VALUES (201,'Mehta','Sanjay',DATE '1980-04-12','emp_photo1');
+--INSERT INTO Employees VALUES (202,'Nair','Anjali',DATE '1992-08-25','emp_photo2');
+--INSERT INTO Employees VALUES (203,'Brown','Michael',DATE '1988-11-30','emp_photo3');
+--INSERT INTO Employees VALUES (204,'Verma','Neha',DATE '1979-06-18','emp_photo4');
+--INSERT INTO Employees VALUES (205,'Wilson','Daniel',DATE '1985-01-22','emp_photo5');
+--
+--INSERT INTO orders_5 VALUES (301, 101, 201, DATE '2023-01-10', 1);
+--INSERT INTO orders_5 VALUES (302, 102, 202, DATE '2023-02-15', 2);
+--INSERT INTO orders_5 VALUES (303, 103, 203, DATE '2023-03-20', 3);
+--INSERT INTO orders_5 VALUES (304, 104, 204, DATE '2023-04-05', 1);
+--INSERT INTO orders_5 VALUES (305, 105, 205, DATE '2023-05-18', 2);
+
+--SELECT * FROM customer_5 ORDER BY CustomerName ASC;
+
+--SELECT * FROM orders_5 ORDER BY OrderDate ASC;
+
+--SELECT * FROM Employees WHERE BirthDate > DATE '1980-01-01' ORDER BY BirthDate DESC;
+--
+--SELECT * FROM Orders_5 O JOIN Customer_5 C ON O.CustomerID = C.CustomerID WHERE C.Country = 'USA' ORDER BY O.OrderDate DESC;
+
+
+--SELECT CustomerID, COUNT(OrderID) AS TotalOrders FROM Orders_5 GROUP BY CustomerID;
+
+
+--SELECT City, COUNT(CustomerID) AS TotalCustomers FROM customer_5 GROUP BY City;
+--INSERT INTO Orders_5 VALUES (306, 101, 202, DATE '2023-06-10', 1);
+--INSERT INTO Orders_5 VALUES (307, 101, 203, DATE '2023-07-15', 2);
+--
+--SELECT CustomerID, COUNT(OrderID) FROM Orders_5 GROUP BY CustomerID HAVING COUNT(OrderID) > 2;
+--INSERT INTO Customer_5 VALUES (106,'Arjun','9012345678','Marine Drive','Kochi','682002','India');
+--INSERT INTO Customer_5 VALUES (107,'Meera','9098765432','Kaloor','Kochi','682003','India');
+--INSERT INTO Customer_5 VALUES (108,'Rahul','9988776655','Edappally','Kochi','682024','India');
+--SELECT City, COUNT(CustomerID) AS TotalCustomers FROM Customer_5 GROUP BY City HAVING COUNT(CustomerID) > 3;
+
