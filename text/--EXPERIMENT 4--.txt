@@ -1,0 +1,41 @@
+--CREATE TABLE student (
+--    roll_no INT PRIMARY KEY,
+--    name VARCHAR(50),
+--    physics INT,
+--    chemistry INT,
+--    mathematics INT
+--);
+--
+--INSERT INTO student VALUES
+--(10, 'Sneha', 24, 23, 50);
+--
+--SELECT AVG(physics) FROM student;
+--
+--SELECT MAX( mathematics) AS highest_marks_maths FROM student;
+--
+--SELECT MIN(chemistry) AS lowest_mark_chemistry FROM student;
+--
+--SELECT count(*) FROM student where physics>=12;
+--
+--The total marks for physics and chemistry is 25.while for mathematics it is 50.
+--The pass mark for physics and chemistry is 12 and for mathematics it is 25. A student is awarded a ‘Pass’ if he has passed all the subjects.
+--
+--SELECT * FROM student where physics >= 12 AND chemistry >= 12 AND mathematics >= 25;
+--
+--9. Find the class average
+--10. Find the total number of students who have got a Pass.
+--
+--SELECT AVG(physics+mathematics+chemistry) FROM student;
+--
+--SELECT COUNT(*) FROM student WHERE  physics >= 12 AND chemistry >= 12 AND mathematics >= 25;
+--
+
+--6. Generate a rank list for the class. Indicate Pass/Fail. Ranking based on total marks obtained by the students.
+--7. Find pass percentage of the class for mathematics
+--8. Find the overall pass percentage for all classes.
+--
+--alter table student ADD (TOTAL int);
+
+--UPDATE student set TOTAL=physics+mathematics+chemistry;
+
+--select * from student order by total DESC;
