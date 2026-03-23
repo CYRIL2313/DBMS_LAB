@@ -1,0 +1,79 @@
+--i)Create a table named Bank with the following attributes
+---bankcode (To be set as Primary Key, type= varchar(3))
+---bankname (Should not be NULL)
+---headoffice
+---branches (Integer value greater than Zero)
+--Populate the database.
+
+--CREATE TABLE Bank (
+--    bankcode VARCHAR(3) PRIMARY KEY,
+--    bankname VARCHAR(100) NOT NULL,
+--    headoffice VARCHAR(100),
+--    branches INT CHECK (branches > 0)
+--);
+
+--INSERT INTO Bank (bankcode, bankname, headoffice, branches) VALUES
+--('SBI', 'State Bank of India', 'Mumbai', 22000),
+--('HDF', 'HDFC Bank', 'Mumbai', 6000),
+--('ICI', 'ICICI Bank', 'Mumbai', 5200),
+--('PNB', 'Punjab National Bank', 'New Delhi', 10000),
+--('BOB', 'Bank of Baroda', 'Vadodara', 9500);
+
+--CREATE TABLE Branch (
+--    branchid INT PRIMARY KEY,
+--    branchname VARCHAR(100) DEFAULT 'New Delhi',
+--    bankid VARCHAR(3),
+--    FOREIGN KEY (bankid) REFERENCES Bank(bankcode)
+--);
+
+--INSERT INTO Branch (branchid, branchname, bankid) VALUES
+--(1, 'Mumbai Main', 'SBI');
+--(2, 'Kochi Branch', 'HDF');
+--(3, 'Chennai Central', 'ICI');
+
+--UPDATE Bank
+--SET headoffice = 'Ernakulam'
+--WHERE bankcode = 'SBI';
+
+--INSERT INTO Bank VALUES ('FED', 'Federal Bank', 'Ernakulam', 1500);
+
+--UPDATE Branch
+--SET branchname = 'Kottayam'
+--WHERE branchid = 2;
+
+--------------------EXPERIMENT 8-------------------------------------------
+
+--INSERT INTO Branch (branchid, branchname, bankid)
+--VALUES (6, 'Kottayam', 'SBI');
+
+--CREATE VIEW bank_head_office AS
+--SELECT * FROM Bank
+--WHERE headoffice = 'Ernakulam';
+
+--SELECT * FROM bank_head_office;
+
+--CREATE VIEW bank_branch AS
+--SELECT B.* FROM Bank B
+--JOIN Branch BR ON B.bankcode = BR.bankid
+--WHERE BR.branchname = 'Kottayam';
+
+--SELECT * FROM bank_branch;
+
+--CREATE VIEW bank_more_than_50 AS
+--SELECT * FROM Bank
+--WHERE branches > 50;
+
+--SELECT * FROM bank_more_than_50;
+
+--CREATE VIEW bank_branch_details AS
+--SELECT b.bankname, br.branchname
+--FROM Bank b
+--JOIN Branch br ON b.bankcode = br.bankid;
+
+--SELECT * FROM bank_branch_details;
+
+--CREATE VIEW bank_outside_ernakulam AS
+--SELECT * FROM Bank
+--WHERE headoffice <> 'Ernakulam';
+
+--SELECT * FROM bank_outside_ernakulam;
